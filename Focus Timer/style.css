@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  --hue: 194;
+  --bg-color: hsl(var(--hue), 5%, 7%);
+  --text-color: hsl(var(--hue), 40%, 98%);
+  --primary-color: hsl(var(--hue), 100%, 63%);
+  --controls-bg: hsl(var(--hue), 0%, 14%);
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body {
+  font-size: 9.6rem;
+  /* ALINHAMENTO NO CENTRO DA TELA*/
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+
+html.light {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.flex {
+  display: flex;
+}
+
+#app {
+  display: grid;
+  justify-items: center;
+}
+
+#toggle-bg {
+  position: absolute;
+  top: 3.2rem;
+  right: 3.2rem;
+  font-size: 3.2rem;
+  color: var(--text-color);
+}
+
+#controls {
+  margin-top: 1.6rem;
+  gap: 1.6rem;
+  background-color: var(--controls-bg);
+  padding: 2.2rem 4rem;
+  border-radius: 999rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+
+  font-size: 6.4rem;
+}
+
+.ph-moon {
+  color: var(--bg-color);
+}
+
+.secondary-color {
+  color: var(--text-color);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* CSS NOT, UTILIZADO PARA SUMIR ALGUM ELEMENTO QUANDO UMA CLASS NÃO ESTIVER ATIVA*/
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle,
+html:not(.music-on) .ph-speaker-high,
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-none,
+html:not(.light) .ph-moon,
+.light .ph-sun {
+  display: none;
+}
